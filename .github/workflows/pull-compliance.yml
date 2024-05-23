@@ -25,7 +25,10 @@ jobs:
       - run: make lint-backend
         env:
           TAGS: bindata sqlite sqlite_unlock_notify
+      - name: Print matcherPath
+        run: echo ${{ env.matcherPath }}
 
+  
   lint-templates:
     if: needs.files-changed.outputs.templates == 'true'
     needs: files-changed
