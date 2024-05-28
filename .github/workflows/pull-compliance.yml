@@ -17,10 +17,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: priyagupta108/setup-go@main
+      - uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
           check-latest: true
+      - name: Setup problem matcher
+        run: echo "::add-matcher::priyagupta108/.github/matcher.json"
       - run: make deps-backend deps-tools
       - run: make lint-backend
         env:
