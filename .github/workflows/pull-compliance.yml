@@ -22,7 +22,7 @@ jobs:
           go-version-file: go.mod
           check-latest: true
       - name: Setup problem matcher
-        run: echo "::add-matcher::priyagupta108/.github/matcher.json"
+        run: echo "::add-matcher::gitea/.github/matcher.json"
       - run: make deps-backend deps-tools
       - run: make lint-backend
         env:
